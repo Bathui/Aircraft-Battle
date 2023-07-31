@@ -2,7 +2,7 @@ import pygame
 
 
 class Settings():
-    """A class to store all settings for Alien Invasion."""
+    """A class to store all settings for the game."""
 
     def __init__(self):
         """Initialize the game's settings."""
@@ -10,4 +10,4 @@ class Settings():
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
-        self.image = pygame.image.load('/Users/sai/Desktop/dl/universe copy.jpg')
+        self.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\Background.jpg')

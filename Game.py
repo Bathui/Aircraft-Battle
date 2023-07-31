@@ -13,7 +13,7 @@ def run_game():
     # and  800 pixels high
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion Game")
+    pygame.display.set_caption("Air Craft Battle Game")
 
     # Make a ship
     ship = Ship(screen)
@@ -21,7 +21,9 @@ def run_game():
     # this variable sets the background color
     # this tuple stores the rgb number of the background color
     # bg_color = (135, 206, 235)
-    image = pygame.image.load('/Users/sai/Desktop/dl/universe copy.jpg')
+    # image = pygame.image.load('D:\Aircraft\Aircraft-Battle\Background.jpg')
+    # '/Users/sai/Desktop/dl/universe copy.jpg'
+
     #screen.blit(image, (0, 0))
     # watch for keyboard and mouse event
     while True:
@@ -37,7 +39,7 @@ def run_game():
         # with the while loop, the new screen can only be visible
         # pygame.display.flip()
         ship.update()
-        gf.update_screen(ship, screen, image)
+        gf.update_screen(ship, screen, ai_settings.image)
 
 
 run_game()
