@@ -2,7 +2,7 @@ import sys  # player could quit the game
 import pygame
 
 
-def check_events(ship):
+def check_events(ship, AB_settings):
     """Respond to keypresses and mouse events"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -17,6 +17,8 @@ def check_events(ship):
                 ship.moving_up = True
             if event.key == pygame.K_DOWN:
                 ship.moving_down = True
+            if event.key == pygame.K_SPACE:
+                AB_settings.GameInterface = True
 
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
@@ -27,6 +29,13 @@ def check_events(ship):
                 ship.moving_up = False
             if event.key == pygame.K_DOWN:
                 ship.moving_down = False
+            if event.key == pygame.K_SPACE:
+                AB_settings.GameInterface = False
+
+
+def change_screen(AB_settings):
+    if AB_settings.GameInterface:
+        AB_settings.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Start interface.png')
 
 
 def update_screen(ship, screen, image):

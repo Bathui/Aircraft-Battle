@@ -25,10 +25,11 @@ class Ship:
         self.moving_up = False
         self.moving_down = False
 
-    def blitme(self):
+    def blitme(self, Settings):
         # Draw the ship at the location we set
         # blitme() method will draw the ship at the position self.rect
-        self.screen.blit(self.image, self.rect)
+        if Settings.GameInterface:
+            self.screen.blit(self.image, self.rect)
 
     def update(self):
         """Update ship's position"""
@@ -36,3 +37,7 @@ class Ship:
             self.rect.centerx += 1
         if self.moving_left:
             self.rect.centerx -= 1
+        if self.moving_up:
+            self.rect.y -= 1
+        if self.moving_down:
+            self.rect.y += 1

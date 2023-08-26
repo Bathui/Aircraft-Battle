@@ -9,11 +9,12 @@ import game_function as gf
 def run_game():
     # Initialize background settings
     pygame.init()
-    # to create a display window that is 1200 pixels wide
+    # to create a display window that is 1425 pixels wide
     # and  800 pixels high
-    ai_settings = Settings()
-    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    AB_settings = Settings()
+    screen = pygame.display.set_mode((AB_settings.screen_width, AB_settings.screen_height))
     pygame.display.set_caption("Air Craft Battle Game")
+
 
     # Make a ship
     ship = Ship(screen)
@@ -28,7 +29,7 @@ def run_game():
     # watch for keyboard and mouse event
     while True:
         # the event is what users did
-        gf.check_events(ship)
+        gf.check_events(ship,Settings)
         # this function fill the color to the screen
         # parameter is given by the variable bg_color
         # screen.fill(bg_color)
@@ -39,7 +40,8 @@ def run_game():
         # with the while loop, the new screen can only be visible
         # pygame.display.flip()
         ship.update()
-        gf.update_screen(ship, screen, ai_settings.image)
+        AB_settings.change_screen()
+        gf.update_screen(ship, screen, AB_settings.image)
 
 
 run_game()
