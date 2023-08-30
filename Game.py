@@ -27,9 +27,20 @@ def run_game():
 
     #screen.blit(image, (0, 0))
     # watch for keyboard and mouse event
+
+    while AB_settings.gameInterface:
+        gf.check_events_settings(AB_settings)
+        screen.blit(AB_settings.image, (0, 0))
+        pygame.display.flip()
+
+    gf.change_screen(AB_settings)
+
+
     while True:
+
         # the event is what users did
-        gf.check_events(ship,Settings)
+        gf.check_events(ship, AB_settings)
+
         # this function fill the color to the screen
         # parameter is given by the variable bg_color
         # screen.fill(bg_color)
@@ -40,8 +51,11 @@ def run_game():
         # with the while loop, the new screen can only be visible
         # pygame.display.flip()
         ship.update()
-        AB_settings.change_screen()
         gf.update_screen(ship, screen, AB_settings.image)
+
+
+
+
 
 
 run_game()

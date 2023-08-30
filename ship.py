@@ -6,8 +6,9 @@ class Ship:
         """Initialize the ship and starting position"""
         self.screen = screen
         # Load the ship image, and the parameter is the address of the image
-        self.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Spitfire\Movement0000.png')
-        # /Users/sai/Desktop/dl/P51 Mustang/Reverse0000.png
+        self.image = pygame.image.load('/Users/sai/pythonProjects/Aircraft-Battle/materials/P51 Mustang/Reverse0000.png')
+        # /Users/sai/pythonProjects/Aircraft-Battle/materials/P51 Mustang/Reverse0000.png
+        # D:\Aircraft\Aircraft-Battle\materials\Spitfire\Movement0000.png
         # This function is to get ship's rectangle
         # We can treat the ship image like a rectangle, even if it is not shaped like rectangle
         # rect can make us use x-and y-coordinate
@@ -25,11 +26,11 @@ class Ship:
         self.moving_up = False
         self.moving_down = False
 
-    def blitme(self, Settings):
+    def blitme(self):
         # Draw the ship at the location we set
         # blitme() method will draw the ship at the position self.rect
-        if Settings.GameInterface:
-            self.screen.blit(self.image, self.rect)
+
+        self.screen.blit(self.image, self.rect)
 
     def update(self):
         """Update ship's position"""
