@@ -11,9 +11,9 @@ class Settings():
         self.screen_width = 1425
         self.screen_height = 800
 
-        self.image = pygame.image.load('/Users/sai/pythonProjects/Aircraft-Battle/materials/Start interface.png')
-        # 'D:\Aircraft\Aircraft-Battle\materials\Background.jpg'
-        #
+        self.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Start interface.png')
+        # 'D:\Aircraft\Aircraft-Battle\materials\Start interface.png'
+        #  /Users/sai/pythonProjects/Aircraft-Battle/materials/Start interface.png
 
         # for event in pygame.event.get():
         #     if event.type == pygame.K_SPACE:
@@ -21,6 +21,7 @@ class Settings():
         #
         #     else:
         #         self.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Start interface.png')
+        self.speed_factor = 1.25
 
 
 

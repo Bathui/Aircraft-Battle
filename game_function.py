@@ -12,7 +12,7 @@ def check_events_settings(AB_settings):
 
 
 
-def check_events(ship, AB_settings):
+def check_events(ship):
     """Respond to keypresses and mouse events"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,9 +41,9 @@ def check_events(ship, AB_settings):
                 ship.moving_down = False
 def change_screen(AB_settings):
     if AB_settings.gameInterface == False:
-        AB_settings.image = pygame.image.load('/Users/sai/pythonProjects/Aircraft-Battle/materials/Background.jpg')
-        # /Users/sai/pythonProjects/Aircraft-Battle/materials/Start interface.png
-        # D:\Aircraft\Aircraft-Battle\materials\Start interface.png
+        AB_settings.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Background.jpg')
+        # /Users/sai/pythonProjects/Aircraft-Battle/materials/Background.jpg
+        # D:\Aircraft\Aircraft-Battle\materials\Background.jpg
 def update_screen(ship, screen, image):
     screen.blit(image, (0, 0))
     ship.blitme()

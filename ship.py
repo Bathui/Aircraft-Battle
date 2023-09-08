@@ -2,11 +2,13 @@ import pygame
 
 
 class Ship:
-    def __init__(self, screen):
+    def __init__(self, screen, Bf_settings):
         """Initialize the ship and starting position"""
         self.screen = screen
+        # obtain the object from Settings
+        self.Bf_settings = Bf_settings
         # Load the ship image, and the parameter is the address of the image
-        self.image = pygame.image.load('/Users/sai/pythonProjects/Aircraft-Battle/materials/P51 Mustang/Reverse0000.png')
+        self.image = pygame.image.load('D:\Aircraft\Aircraft-Battle\materials\Spitfire\Movement0000.png')
         # /Users/sai/pythonProjects/Aircraft-Battle/materials/P51 Mustang/Reverse0000.png
         # D:\Aircraft\Aircraft-Battle\materials\Spitfire\Movement0000.png
         # This function is to get ship's rectangle
@@ -17,9 +19,12 @@ class Ship:
         # store the value of x-coordinate of the ship
         # match the screen's centerx
         self.rect.centerx = self.screen_rect.centerx
+
+        self.center = float(self.rect.centerx)
         # store the value of y-coordinate of the ship's bottom
         # match the screen's value of the bottom
         self.rect.bottom = self.screen_rect.bottom
+
         # Movement flag
         self.moving_right = False
         self.moving_left = False
@@ -34,11 +39,13 @@ class Ship:
 
     def update(self):
         """Update ship's position"""
-        if self.moving_right:
-            self.rect.centerx += 1
-        if self.moving_left:
-            self.rect.centerx -= 1
-        if self.moving_up:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.rect.centerx += self.Bf_settings.speed_factor
+        if self.moving_left and self.rect.left > 0:
+            self.rect.centerx -= self.Bf_settings.speed_factor
+        if self.moving_up and self.rect.top > 0:
             self.rect.y -= 1
-        if self.moving_down:
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.rect.y += 1
+# and self.rect.top < self.screen_rect.top
+# and self.rect.bottom < self.screen_rect.bottom
